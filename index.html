@@ -1,28 +1,405 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="个人作品集：推荐系统、生成式推荐、数据分析与 AI 应用开发">
-  <title>Portfolio | frfr123</title>
-  <style>
-    :root{--bg:#0b1020;--card:#151d32;--line:#2d3953;--text:#edf2fd;--muted:#aab8d4;--accent:#86b7ff}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;line-height:1.7}a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:980px;margin:auto;padding:0 24px}header{border-bottom:1px solid var(--line);padding:18px 0}nav{display:flex;justify-content:space-between;align-items:center;gap:16px}nav .links{display:flex;gap:20px;flex-wrap:wrap}.logo{color:white;font-weight:800;letter-spacing:.4px}.hero{padding:98px 0 76px}.eyebrow{color:var(--accent);font-weight:700;letter-spacing:2px;font-size:13px}.hero h1{font-size:clamp(36px,6vw,62px);letter-spacing:-1.5px;line-height:1.13;max-width:820px;margin:18px 0 20px}.hero p{font-size:18px;color:var(--muted);max-width:700px}.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-block;background:#4384e9;color:white;padding:11px 20px;border-radius:9px;font-weight:650}.btn.outline{background:transparent;border:1px solid #7183a2}.btn:hover{text-decoration:none;filter:brightness(1.12)}section{padding:38px 0}h2{font-size:27px;letter-spacing:-.5px;margin:0 0 12px}.intro{color:var(--muted);margin:0 0 24px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.project{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}.project h3{margin:0 0 8px;font-size:20px}.project p{color:var(--muted);margin:0 0 18px}.tag{display:inline-block;background:#273c62;color:#c1daff;padding:4px 9px;border-radius:6px;font-size:12px;margin:0 6px 8px 0}.about{color:var(--muted)}footer{margin-top:50px;border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:14px}@media(max-width:650px){nav{align-items:flex-start;flex-direction:column}.hero{padding:68px 0 48px}.grid{grid-template-columns:1fr}.wrap{padding:0 18px}}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feng Yuan | Personal Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, "Microsoft YaHei", sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        header {
+            padding: 24px 0;
+            border-bottom: 1px solid #334155;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #60a5fa;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a:hover {
+            color: #60a5fa;
+        }
+
+        .hero {
+            padding: 100px 0 90px;
+        }
+
+        .hero-tag {
+            color: #60a5fa;
+            font-size: 14px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(20px, 3.4vw, 38px);
+            line-height: 1.4;
+            white-space: nowrap;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            color: #94a3b8;
+            font-size: 17px;
+            max-width: 750px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .primary {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .secondary {
+            border: 1px solid #64748b;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+        section {
+            padding: 50px 0;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 28px;
+        }
+
+        .about p {
+            color: #94a3b8;
+            max-width: 850px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 25px;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+        }
+
+        .card h3 {
+            color: #f8fafc;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #94a3b8;
+            font-size: 14px;
+            flex: 1;
+        }
+
+        .tags {
+            margin-top: 20px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #334155;
+            color: #93c5fd;
+            border-radius: 5px;
+            padding: 4px 9px;
+            margin: 4px 4px 4px 0;
+            font-size: 12px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 10px 18px;
+        }
+
+        .resume-box {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .resume-box p {
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            border-top: 1px solid #334155;
+            padding: 30px 0;
+            text-align: center;
+            color: #64748b;
+        }
+
+        @media (max-width: 850px) {
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 65px 0;
+            }
+
+            .hero h1 {
+                white-space: normal;
+            }
+
+            nav {
+                flex-wrap: wrap;
+            }
+
+            .nav-links {
+                gap: 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <header><nav class="wrap"><a class="logo" href="#top">frfr123 / Portfolio</a><div class="links"><a href="#projects">项目</a><a href="#about">关于</a><a href="#resume">简历</a><a href="https://github.com/frfr123" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></nav></header>
-  <main id="top" class="wrap">
-    <div class="hero"><div class="eyebrow">RECOMMENDATION · DATA ANALYTICS · AI</div><h1>以数据为基础，构建智能推荐与 AI 应用。</h1><p>专注推荐算法、生成式推荐、数据分析与 AI Native 应用开发。这里展示我的技术项目、研究实践和工程探索。</p><div class="btns"><a class="btn" href="#projects">查看项目 →</a><a class="btn outline" href="#resume">查看简历</a></div></div>
-    <section id="projects"><h2>精选项目</h2><p class="intro">以下为项目概览。后续可将项目名称链接至公开仓库与技术文档。</p><div class="grid">
-      <article class="project"><h3>RecFlow</h3><p>基于真实曝光日志构建多阶段推荐系统，研究多路召回、向量检索、排序与离线评估。</p><span class="tag">Recommendation</span><span class="tag">FAISS</span><span class="tag">Ranking</span></article>
-      <article class="project"><h3>Minioner</h3><p>探索基于语义 ID 的生成式推荐，包括 RQ-VAE、Transformer、自回归生成与约束解码。</p><span class="tag">Generative Retrieval</span><span class="tag">PyTorch</span><span class="tag">RQ-VAE</span></article>
-      <article class="project"><h3>数据分析项目</h3><p>结合 Python、SQL 与统计分析方法，开展业务指标拆解、结果验证与分析解读。</p><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Analytics</span></article>
-      <article class="project"><h3>AI Skill</h3><p>设计可复用的 AI Skill 工作流，组织业务知识与操作流程，探索 AI Native 应用开发。</p><span class="tag">AI Native</span><span class="tag">Workflow</span><span class="tag">LLM</span></article>
-    </div></section>
-    <section id="about"><h2>关于我</h2><p class="about">我关注推荐系统、机器学习与数据驱动决策，也在探索从模型研究到 AI 应用落地的完整流程。技能涵盖 Python、SQL、PyTorch、Pandas、Git 等。</p></section>
-    <section id="resume"><h2>简历与联系</h2><p class="intro">PDF 简历将在上传并确认后开放下载。你也可以先通过 GitHub 查看公开项目。</p><div class="btns"><a class="btn outline" href="https://github.com/frfr123" target="_blank" rel="noopener noreferrer">访问我的 GitHub ↗</a></div></section>
-  </main>
-  <footer><div class="wrap">© 2026 frfr123 · Built with GitHub Pages</div></footer>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Feng Yuan.</a>
+
+                <div class="nav-links">
+                    <a href="#about">关于我</a>
+                    <a href="#projects">项目经历</a>
+                    <a href="#skills">技术栈</a>
+                    <a href="#resume">个人简历</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <div class="container">
+                <div class="hero-tag">
+                    RECOMMENDATION / DATA / AI
+                </div>
+
+                <h1>推荐系统 · 数据分析 · AI 应用开发</h1>
+
+                <p>
+                    关注推荐算法、数据驱动的业务分析与 AI Native 应用开发。
+                    致力于通过机器学习、数据分析和智能工作流解决实际问题。
+                </p>
+
+                <div class="buttons">
+                    <a href="#projects" class="btn primary">
+                        查看项目
+                    </a>
+
+                    <a href="#resume" class="btn secondary">
+                        查看简历
+                    </a>
+
+                    <a href="https://github.com/fengyuan-dev"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn secondary">
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2>关于我</h2>
+
+                <p>
+                    我主要关注推荐系统、机器学习和数据分析方向，
+                    具有推荐算法项目开发、数据处理、模型评估及实证分析经验。
+                    同时积极探索大语言模型与 AI Native 工作流在实际场景中的应用。
+                </p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2>精选项目</h2>
+
+                <div class="projects">
+
+                    <div class="card">
+                        <h3>RecFlow 推荐系统</h3>
+
+                        <p>
+                            基于真实曝光日志构建多阶段推荐系统，
+                            实现多路召回、FAISS 向量检索、
+                            深度学习排序模型与离线评估流程，
+                            研究不同召回策略和排序模型的效果。
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">FAISS</span>
+                            <span class="tag">Recommendation</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>数据分析与业务洞察</h3>
+
+                        <p>
+                            使用 Python、SQL 和数据可视化工具，
+                            进行数据清洗、指标计算与业务分析。
+                            结合统计方法与实验设计，
+                            探索业务变化背后的潜在原因。
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">Pandas</span>
+                            <span class="tag">Power BI</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>AI Native Skill 开发</h3>
+
+                        <p>
+                            面向实际业务场景开发 AI Skill，
+                            通过结构化知识与工作流设计，
+                            提升大语言模型执行专业任务的能力，
+                            并完成项目开源与使用说明。
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">LLM</span>
+                            <span class="tag">AI Skill</span>
+                            <span class="tag">Workflow</span>
+                            <span class="tag">GitHub</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <h2>技术栈</h2>
+
+                <div class="skills">
+                    <span class="skill">Python</span>
+                    <span class="skill">SQL</span>
+                    <span class="skill">PyTorch</span>
+                    <span class="skill">Pandas</span>
+                    <span class="skill">NumPy</span>
+                    <span class="skill">Scikit-learn</span>
+                    <span class="skill">FAISS</span>
+                    <span class="skill">Power BI</span>
+                    <span class="skill">Git / GitHub</span>
+                    <span class="skill">Machine Learning</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="resume">
+            <div class="container">
+                <h2>个人简历</h2>
+
+                <div class="resume-box">
+                    <p>
+                        查看我的教育背景、技术能力及完整项目经历。
+                    </p>
+
+                    <a href="assets/resume.pdf"
+                       target="_blank"
+                       class="btn primary">
+                        查看 / 下载 PDF 简历
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            © 2026 Feng Yuan ·
+            <a href="https://github.com/fengyuan-dev">
+                GitHub
+            </a>
+        </div>
+    </footer>
+
 </body>
 </html>
